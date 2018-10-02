@@ -10,7 +10,6 @@ public class User {
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @Column
     private String firstName;
     @Column
@@ -49,5 +48,4 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
 }

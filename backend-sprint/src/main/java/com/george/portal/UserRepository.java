@@ -4,11 +4,11 @@ import org.aspectj.apache.bcel.util.Repository;
 
 import java.util.List;
 
-public interface UserRepository extends Repository {
+public interface UserRepository extends Repository<User, Integer> {
 
     void delete(User user);
 
-    List findAll();
+    List<User> findAll();
 
     User findOne(int id);
 
