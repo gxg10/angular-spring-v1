@@ -53,6 +53,7 @@ public class Blog {
         this.content = content;
     }
 
+    @Override
     public String toString() {
         return "Blog{" +
                 "id=" + id +
