@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PackageServiceService } from './package-service.service';
-import { Package } from './packages';
-import { Question } from './question-model';
 
 @Component({
   selector: 'app-root',
@@ -9,27 +6,25 @@ import { Question } from './question-model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  implements OnInit{
-  title = 'app';
+  title = 'JavaSampleApproach';
+  description = 'Angular-SpringBoot';
 
-  blog: Package[] = [];
-  questions: Question[] = [];
-
-  constructor(private packService: PackageServiceService) {
+  constructor() {
 
   }
 
   ngOnInit() {
-    this.getP();
+    // this.getP();
   }
 
-  getP() {
-    this.packService.getPackages().subscribe(
-      (questions: Question[]) => {
-        this.questions = questions;
-        console.log(this.questions);
-      }
-    );
-  }
+  // getP() {
+  //   this.packService.getPackages().subscribe(
+  //     (questions: Question[]) => {
+  //       this.questions = questions;
+  //       console.log(this.questions);
+  //     }
+  //   );
+  // }
 
 
   // getP() {

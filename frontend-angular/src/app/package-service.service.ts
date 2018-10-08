@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PackageServiceService {
 
-  apiUrl = 'http://localhost:8080/questions';
+  apiUrl = 'http://localhost:8080/api/customers';
 
   // private blogs: Package[] = [];
 
