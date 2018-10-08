@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Package } from './packages';
 
 
 @Injectable({
@@ -8,7 +7,7 @@ import { Package } from './packages';
 })
 export class PackageServiceService {
 
-  apiUrl = 'http://localhost:8080/blog';
+  apiUrl = 'http://localhost:8080/questions';
 
   // private blogs: Package[] = [];
 

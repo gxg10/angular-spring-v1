@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PackageServiceService } from './package-service.service';
 import { Package } from './packages';
+import { Question } from './question-model';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ export class AppComponent  implements OnInit{
   title = 'app';
 
   blog: Package[] = [];
+  questions: Question[] = [];
 
   constructor(private packService: PackageServiceService) {
 
@@ -22,9 +24,9 @@ export class AppComponent  implements OnInit{
 
   getP() {
     this.packService.getPackages().subscribe(
-      (blogs: Package[]) => {
-        this.blog = blogs;
-        console.log(this.blog);
+      (questions: Question[]) => {
+        this.questions = questions;
+        console.log(this.questions);
       }
     );
   }
