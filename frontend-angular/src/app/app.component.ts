@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PackageServiceService } from './package-service.service';
+import { Observable } from 'rxjs';
+import { Question } from './question-model';
 
 @Component({
   selector: 'app-root',
@@ -9,31 +12,37 @@ export class AppComponent  implements OnInit{
   title = 'JavaSampleApproach';
   description = 'Angular-SpringBoot';
 
-  constructor() {
+  questions: Observable<Question[]>;
+  question: Question = new Question();
+  // questions: Question[];
+
+  constructor(private packageService: PackageServiceService) {
 
   }
 
   ngOnInit() {
-    // this.getP();
+    this.getQ();
   }
 
-  // getP() {
-  //   this.packService.getPackages().subscribe(
-  //     (questions: Question[]) => {
-  //       this.questions = questions;
-  //       console.log(this.questions);
-  //     }
-  //   );
-  // }
 
+  getQ() {
+    this.packageService.getPackages().subscribe(
+      (data) => {
+        console.log(data);
+        this.questions = data;
+      }
+    );
+  }
 
-  // getP() {
-  //   this.packService.getPackages().subscribe(
-  //     (data:{}) => {
-  //       console.log(data);
-  //       this.blog = data[0];
-  //       console.log(this.blog);
-  //     });
-  // }
+  save() {
+    this.packageService.postQuestion(this.question)
+    .subscribe(data=> console.log(data), error => console.log(error));
+    this.question = new Question();
+  }
+
+  onSubmit() {
+    console.log(this.question);
+    this.save();
+  }
 
 }

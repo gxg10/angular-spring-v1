@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -18,13 +20,17 @@ public class QuestionController {
     private QuestionRepository questionRepository;
 
     @GetMapping("/questions")
-    public Page<Question> getQuestions(Pageable pageable) {
-        return questionRepository.findAll(pageable);
+    public List<Question> getQuestions(Pageable pageable) {
+        List<Question> questions = new ArrayList<>();
+        questionRepository.findAll().forEach(questions::add);
+
+        return questions;
     }
 
 
     @PostMapping("/questions")
     public Question createQuestion(@Valid @RequestBody Question question) {
+
         return questionRepository.save(question);
     }
 

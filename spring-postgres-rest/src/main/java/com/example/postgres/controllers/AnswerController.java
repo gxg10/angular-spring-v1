@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class AnswerController {
 
@@ -34,6 +35,20 @@ public class AnswerController {
                             return answerRepository.save(answer);
                         }
                 ).orElseThrow(() ->new NullPointerException());
+    }
+
+    @PutMapping("/questions/{questionId}/answers/{answerId}")
+    public Answer updateAnswer(@PathVariable Long questionId,
+                               @PathVariable Long answerId,
+                               @Valid @RequestBody Answer answerRequest) {
+        if (!questionRepository.existsById(questionId)) {
+            throw new NullPointerException("q not found");
+        }
+        return answerRepository.findById(answerId)
+                .map(answer -> {
+                    answer.setText(answerRequest.getText());
+                    return answerRepository.save(answer);
+                }).orElseThrow(() -> new NullPointerException());
     }
 
     @DeleteMapping("/questions/{questionId}/answers/{answerId}")
