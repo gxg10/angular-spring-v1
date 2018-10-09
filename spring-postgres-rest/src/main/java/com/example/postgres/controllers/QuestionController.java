@@ -27,6 +27,19 @@ public class QuestionController {
         return questions;
     }
 
+    @GetMapping("/questions/{questionId}")
+    public Question getQuestionById(Pageable pageable,
+                                    @PathVariable Long questionId) {
+        List<Question> questions = new ArrayList<>();
+        questionRepository.findAll().forEach(questions::add);
+        for (Question que: questions) {
+            if (que.getId().equals(questionId)) {
+                return que;
+            }
+        }
+        return null;
+    }
+
 
     @PostMapping("/questions")
     public Question createQuestion(@Valid @RequestBody Question question) {

@@ -35,7 +35,7 @@ export class QuestionDetailsComponent implements OnInit {
     this.answerService.getAnswers(this.question.id).subscribe(
       (data) => {
         console.log(data);
-        this.answer = data;
+        // this.answer = data;
       }
     );
   }

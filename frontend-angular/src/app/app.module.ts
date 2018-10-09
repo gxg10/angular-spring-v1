@@ -11,6 +11,7 @@ import { QuestionListComponent } from './question-list/question-list.component';
 import { QuestionDetailsComponent } from './question-details/question-details.component';
 import { RouterModuleApp } from './router-module';
 import { HeaderComponent } from './header/header.component';
+import { IndividualquestionComponent } from './individualquestion/individualquestion.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HeaderComponent } from './header/header.component';
     CreatequestionComponent,
     QuestionListComponent,
     QuestionDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    IndividualquestionComponent
   ],
   imports: [
     BrowserModule,

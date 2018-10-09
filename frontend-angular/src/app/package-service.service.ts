@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Question } from './question-model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,10 @@ export class PackageServiceService {
   getPackages(): Observable<any> {
     return this.http.get(this.apiUrl);
 
+  }
+
+  getQuestion(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}`);
   }
 
   postQuestion(question: Object): Observable<Object> {
