@@ -2,4 +2,9 @@
   <label>Name: </label>{{question.title}}<br>
   <label>description: </label>{{question.description}}
   <button><span (click)='deleteQuestion()'>Delete</span></button>
+  <p>push pentru answers</p>
+  <button (click)='getAns()'>Get</button>
+  <div *ngFor="let ans of answer">
+    <p>{{ans.text}}</p>
+  </div>
 </div>
