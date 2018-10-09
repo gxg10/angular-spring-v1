@@ -12,27 +12,15 @@ export class AppComponent  implements OnInit{
   title = 'JavaSampleApproach';
   description = 'Angular-SpringBoot';
 
-  questions: Observable<Question[]>;
   question: Question = new Question();
-  // questions: Question[];
 
   constructor(private packageService: PackageServiceService) {
 
   }
 
   ngOnInit() {
-    this.getQ();
   }
 
-
-  getQ() {
-    this.packageService.getPackages().subscribe(
-      (data) => {
-        console.log(data);
-        this.questions = data;
-      }
-    );
-  }
 
   save() {
     this.packageService.postQuestion(this.question)

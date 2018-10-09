@@ -1,0 +1,5 @@
+<div *ngIf="question">
+  <label>Name: </label>{{question.title}}<br>
+  <label>description: </label>{{question.description}}
+  <button><span (click)='deleteQuestion()'>Delete</span></button>
+</div>
