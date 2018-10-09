@@ -1,5 +1,13 @@
 <div *ngIf="question">
     <p>Intrebare: </p><br>
-        <h2>{{question.title }}</h2>
-        <h4>{{question.description}}</h4>
+        <p><strong>{{question.title }}</strong></p>
+        <p>{{question.description}}</p>
+        
+
+        <!-- <p>{{answer.text}}</p> -->
+</div>
+<div *ngIf="answer">
+        <p>Raspunsuri: </p>
+        <p>{{answer.text}}</p>
+
 </div>

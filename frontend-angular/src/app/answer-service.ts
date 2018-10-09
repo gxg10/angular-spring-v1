@@ -15,7 +15,7 @@ export class AnswerService {
 
     }
 
-    getAnswers(questionId: number) {
-        return this.http.get(`${this.apiUrl}/${questionId}/answers`)
+    getAnswers(questionId: number): Observable<any> {
+        return this.http.get(`${this.apiUrl}/${questionId}/answers`);
     }
 }

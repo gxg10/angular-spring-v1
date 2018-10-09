@@ -13,13 +13,13 @@ import { Observable } from 'rxjs';
 export class QuestionDetailsComponent implements OnInit {
 
   @Input() question: Question;
-  answer: Observable<Answer>;
+  // answer: Observable<Answer>;
 
   constructor(private service: PackageServiceService,
               private answerService: AnswerService) { }
 
   ngOnInit() {
-    this.getAns();
+    // this.getAns();
   }
 
   deleteQuestion() {
@@ -31,13 +31,13 @@ export class QuestionDetailsComponent implements OnInit {
       );
   }
 
-  getAns() {
-    this.answerService.getAnswers(this.question.id).subscribe(
-      (data) => {
-        console.log(data);
-        // this.answer = data;
-      }
-    );
-  }
+  // getAns() {
+  //   this.answerService.getAnswers(this.question.id).subscribe(
+  //     (data) => {
+  //       console.log(data);
+  //       this.answer = data;
+  //     }
+  //   );
+  // }
 
 }

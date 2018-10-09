@@ -3,6 +3,9 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Question } from '../question-model';
 import { PackageServiceService } from '../package-service.service';
 import { Observable } from 'rxjs';
+import { AnswerService } from '../answer-service';
+import { Answer } from '../answer-model';
+import {map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-individualquestion',
@@ -13,9 +16,11 @@ export class IndividualquestionComponent implements OnInit {
 
   id: number;
   question: Question;
+  answer: Observable<Answer[]>;
 
   constructor(private route: ActivatedRoute,
-              private questionService: PackageServiceService) { }
+              private questionService: PackageServiceService,
+              private answerService: AnswerService) { }
 
   ngOnInit() {
       this.route.params.subscribe(
@@ -25,13 +30,23 @@ export class IndividualquestionComponent implements OnInit {
         }
       );
       this.getSingleQuestion(this.id);
-      // console.log(this.question);
+      this.getAnswersForQuestion(this.id);
+      console.log('this answer is '+ this.answer);
   }
 
   getSingleQuestion(id: number) {
       this.questionService.getQuestion(id).subscribe(
         (data) => {
           this.question = data;
+        }
+      );
+  }
+
+  getAnswersForQuestion(id: number) {
+      this.answerService.getAnswers(id).subscribe(
+        (data) => {
+          console.log(data);
+          this.answer = data;
         }
       );
   }
