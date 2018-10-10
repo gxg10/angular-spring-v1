@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Question } from '../question-model';
 import { PackageServiceService } from '../package-service.service';
@@ -17,6 +17,8 @@ export class IndividualquestionComponent implements OnInit {
   id: number;
   question: Question;
   answer: Answer[];
+  add = false;
+  newAns: Answer = new Answer();
 
   constructor(private route: ActivatedRoute,
               private questionService: PackageServiceService,
@@ -52,6 +54,24 @@ getAnswersForQuestion(id: number) {
       console.log(this.answer);
     }
   );
+}
+
+addAnswer() {
+    this.add = !this.add;
+    console.log(this.add);
+}
+
+onSubmit() {
+  console.log(this.id, this.newAns);
+  this.saveNewAnswer();
+}
+
+saveNewAnswer() {
+  this.answerService.postAnswer(this.id, this.newAns)
+  .subscribe(
+    data => console.log(data),
+    error => console.log(error));
+    this.newAns = new Answer();
 }
 
 }

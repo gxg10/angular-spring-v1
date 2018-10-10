@@ -20,4 +20,8 @@ export class AnswerService {
         return this.http.get(`${this.apiUrl}/${questionId}/answers`);
     }
 
+    postAnswer(questionId: number, answer: Object): Observable<Object> {
+        return this.http.post(`${this.apiUrl}/${questionId}/answers`, answer);
+    }
+
 }

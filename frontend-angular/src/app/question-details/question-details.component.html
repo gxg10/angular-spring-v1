@@ -1,10 +1,8 @@
 <div *ngIf="question">
-  <label>Name: </label>{{question.title}}<br>
-  <label>description: </label>{{question.description}}
+  <!-- <label>Name: </label>{{question.title}}<br> -->
+  <a routerLink={{question.id}}>{{question.title}}</a>
+  <p><span class="badge badge-pill badge-light">descriere: </span>{{question.description}}</p>
   <button class="button is-small btn-primary"><span (click)='deleteQuestion()'>Delete</span></button>
-  <p>push pentru answers</p>
-  <a routerLink={{question.id}}>push</a>
-  <button (click)='getAns()'>Get</button>
   <div *ngFor="let ans of answer">
     <p>{{ans.text}}</p>
   </div>

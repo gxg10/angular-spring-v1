@@ -2,15 +2,24 @@
     <p>Intrebare: </p><br>
         <p><strong>{{question.title }}</strong></p>
         <p>{{question.description}}</p>
-        
+        <p>Raspunsuri: </p>
 
-        <!-- <p>{{answer.text}}</p> -->
 </div>
 <div *ngIf="answer">
-        <div *ngFor="let ans of answer">
-                        <p>Raspunsuri: </p>
-                        <p>{{ans.text}}</p>
+        <ul *ngFor="let ans of answer">
+                <li>{{ans.text}}</li> 
+        </ul>
+        <p>push to add answer</p><button (click)="addAnswer()">ADD</button>
+        <div *ngIf="add">
+                add answer : 
+                <form (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                                <label for="text">Raspuns</label>
+                                <input type="text" id="text" required [(ngModel)]="newAns.text"
+                                name="text">
+                        </div>
+                        <button type="submit" class="btn btn-success">submit</button>
+                </form>
         </div>
-        
-
 </div>
+
