@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @Controller
 public class UploadController {
 
@@ -27,6 +28,7 @@ public class UploadController {
     @PostMapping("/post")
     public ResponseEntity<String> handleFileUpload(@RequestParam("file")MultipartFile file) {
         String message = "";
+//        System.out.println(file.getBytes());
         try {
             storageService.store(file);
             files.add(file.getOriginalFilename());

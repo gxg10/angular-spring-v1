@@ -13,6 +13,7 @@ import { RouterModuleApp } from './router-module';
 import { HeaderComponent } from './header/header.component';
 import { IndividualquestionComponent } from './individualquestion/individualquestion.component';
 import { UploadComponent } from './upload/upload.component';
+import { UploadfileService } from './uploadfile.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { UploadComponent } from './upload/upload.component';
     FormsModule,
     RouterModuleApp
   ],
-  providers: [PackageServiceService],
+  providers: [PackageServiceService, UploadfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
