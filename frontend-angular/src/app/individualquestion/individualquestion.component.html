@@ -7,7 +7,10 @@
         <!-- <p>{{answer.text}}</p> -->
 </div>
 <div *ngIf="answer">
-        <p>Raspunsuri: </p>
-        <p>{{answer.text}}</p>
+        <div *ngFor="let ans of answer">
+                        <p>Raspunsuri: </p>
+                        <p>{{ans.text}}</p>
+        </div>
+        
 
 </div>

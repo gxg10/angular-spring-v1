@@ -16,7 +16,7 @@ export class IndividualquestionComponent implements OnInit {
 
   id: number;
   question: Question;
-  answer: Observable<Answer[]>;
+  answer: Answer[];
 
   constructor(private route: ActivatedRoute,
               private questionService: PackageServiceService,
@@ -42,13 +42,16 @@ export class IndividualquestionComponent implements OnInit {
       );
   }
 
-  getAnswersForQuestion(id: number) {
-      this.answerService.getAnswers(id).subscribe(
-        (data) => {
-          console.log(data);
-          this.answer = data;
-        }
-      );
-  }
+
+getAnswersForQuestion(id: number) {
+  this.answerService.getAnswers(id)
+  .subscribe(
+    (data) => {
+      // console.log(data);
+      this.answer = data;
+      console.log(this.answer);
+    }
+  );
+}
 
 }
