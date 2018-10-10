@@ -12,6 +12,7 @@ import { QuestionDetailsComponent } from './question-details/question-details.co
 import { RouterModuleApp } from './router-module';
 import { HeaderComponent } from './header/header.component';
 import { IndividualquestionComponent } from './individualquestion/individualquestion.component';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { IndividualquestionComponent } from './individualquestion/individualques
     QuestionListComponent,
     QuestionDetailsComponent,
     HeaderComponent,
-    IndividualquestionComponent
+    IndividualquestionComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,

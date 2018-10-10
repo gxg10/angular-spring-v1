@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, OnChanges, DoCheck } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Question } from '../question-model';
 import { PackageServiceService } from '../package-service.service';
@@ -36,6 +36,10 @@ export class IndividualquestionComponent implements OnInit {
       console.log('this answer is '+ this.answer);
   }
 
+  // ngDoCheck() {
+  //   this.getAnswersForQuestion(this.id);
+  // }
+
   getSingleQuestion(id: number) {
       this.questionService.getQuestion(id).subscribe(
         (data) => {
@@ -43,7 +47,6 @@ export class IndividualquestionComponent implements OnInit {
         }
       );
   }
-
 
 getAnswersForQuestion(id: number) {
   this.answerService.getAnswers(id)
